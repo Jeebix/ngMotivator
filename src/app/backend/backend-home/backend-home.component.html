@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+	<span>Administration</span>
+</mat-toolbar>
+<a routerLink="/">front</a>
+<hr>
+<mat-tab-group>
+	<mat-tab label="Connexion">
+		<app-login></app-login>
+		<app-register-user></app-register-user>
+	</mat-tab>
+	<mat-tab label="Citations">
+		<!-- Custom event -->
+		<!-- Ecoute l'évènement 'create' et réagit en appelant 'onQuoteCreated()' -->
+		<app-create-quote (create)="onQuoteCreated($event)" (update)="onQuoteUpdated($event)"></app-create-quote>
+		<app-backend-quotes></app-backend-quotes>
+	</mat-tab>
+	<mat-tab label="Contact">
+		<h3>Téléphone</h3>
+		<div>06 0@6 06 06 06</div>
+		<h3>Email</h3>
+		<div>test@test.fr</div>
+	</mat-tab>
+</mat-tab-group>
+<hr>
+
+

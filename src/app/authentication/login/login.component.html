@@ -1,0 +1,23 @@
+<h3 *ngIf="!(authService.user$ | async)">Se connecter (j'ai déjà un compte)</h3>
+<!-- Le *ngIf() permet de tester si l'observable a fournit un utilisateur -->
+<div>
+	<form #login="ngForm" (ngSubmit)="loginUser()" *ngIf="!(authService.user$ | async)">
+		<mat-form-field>
+			<input matInput type="text" name="email" placeholder="email" [(ngModel)]="existingUser.email">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput type="password" name="password" placeholder="mot de passe" [(ngModel)]="existingUser.password">
+		</mat-form-field>
+		<button mat-raised-button color="primary" type="submit">se connecter</button>
+	</form>
+</div>
+
+<div *ngIf="authService.user$ | async">
+	<span *ngIf="authService.user$ | async">connecté en tant que {{ (authService.user$ | async)?.email }}</span>
+	<!-- Pipe async abonne et désabonne quand page plus utilisée -->
+	<!-- ? permet d'accéder à la propriété seulement quand l'observable est disponible -->
+	<button mat-button color="primary" type="button" (click)="logoutUser()">se déconnecter</button>
+	<button mat-button color="primary" type="button" (click)="authService.sendEmailVerification()">envoyer un email de confirmation</button>
+</div>
+
+<!-- {{ login?.value | json }} -->

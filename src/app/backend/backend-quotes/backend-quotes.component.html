@@ -1,0 +1,14 @@
+<div *ngIf="isAdmin">
+	<ul>
+		<!-- Pipe async permet de s'abonner et se désabonner à un observable -->
+		<li *ngFor="let quote of quotes$ | async" (click)="showQuoteDetails(quote)">
+			<button mat-button color="primary" class="btn btn-primary" (click)="toggleToEditMode(quote)">modif</button>
+			<button mat-button color="warn" class="btn btn-primary" (click)="deleteQuote(quote)">suppr</button>
+			{{ quote.text }}
+		</li>
+	</ul>
+</div>
+
+<div *ngIf="!isAdmin">
+	<p>Veuillez vous connecter avec un compte autorisé à gérer les citations</p>
+</div>

@@ -1,0 +1,11 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+li
+{
+	list-style-type: none;
+}
+
+h1, h2, h3
+{
+	color: #673ab7;
+}

@@ -1,0 +1,12 @@
+<h3>Créer un compte</h3>
+<div>
+	<form #f="ngForm" (ngSubmit)="registerUser()">
+		<mat-form-field>
+			<input matInput type="text" name="email" placeholder="email" [(ngModel)]="newUser.email">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput type="password" name="password" placeholder="mot de passe" [(ngModel)]="newUser.password">
+		</mat-form-field>
+		<button mat-raised-button color="primary" type="submit">créer un compte</button>
+	</form>
+</div>

@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+	<span>Toutes les citations</span>
+</mat-toolbar>
+<a routerLink="/admin">admin</a>
+<ul>
+	<!-- Pipe async permet de s'abonner et se désabonner à un observable -->
+	<li *ngFor="let quote of quotes$ | async" (click)="showQuoteDetails(quote)">
+		<mat-card>
+			 {{ quote.text }}
+		</mat-card>
+	</li>
+</ul>
